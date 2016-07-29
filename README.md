@@ -1,8 +1,8 @@
 # **flatpress**
 A simple blogging platform built on Rails.
 
-Github repo: https://github.com/codedoll/flatpress
-Waffle link: https://waffle.io/codedoll/flatpress
+- Github repo: https://github.com/codedoll/flatpress
+- Waffle link: https://waffle.io/codedoll/flatpress
 
 
 ## User Stories ##

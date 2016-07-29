@@ -1,0 +1,2 @@
+# flatpress
+Rails mini project

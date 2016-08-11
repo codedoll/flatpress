@@ -1,5 +1,82 @@
 <h1>New Post</h1>
 
-<%= render 'form' %>
+<%= form_for @article do |f| %>
+ 
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@article.errors.count, "error") %> to fix:
+      </h2>
+      <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :text %><br>
+    <%= f.text_area :text %>
+  </p>
+
+  <p>
+    <%= f.label :eventname %><br>
+    <%= f.text_field :eventname  %>
+
+<div class="container">
+    <div class='col-md-5'>
+        <div class="form-group">
+        <label>Event Date Start:</label>
+            <div class='input-group date' id='datetimepicker6'>
+            <%= f.text_field :eventdate_start, class: 'form-control' %>
+                <!-- <input type='text' class="form-control" /> -->
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class='col-md-5'>
+        <div class="form-group">
+                <label>Event Date End:</label>
+
+            <div class='input-group date' id='datetimepicker7'>
+            <%= f.text_field :eventdate_end, class: 'form-control' %>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker6').datetimepicker();
+        $('#datetimepicker7').datetimepicker({
+            useCurrent: false //Important! See issue #1075
+        });
+        $("#datetimepicker6").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
+    });
+</script>
+
+   <p>
+      <%= f.hidden_field :attendee, :value => @user.username %>
+   </p>
+  <p>
+    <%= f.submit %>
+  </p>
+ 
+<% end %>
+
 
 <%= link_to 'Back', articles_path %>

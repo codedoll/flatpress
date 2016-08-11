@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  attendee: MyString
+  confirmed_on: MyString
+  article: one
+
+two:
+  attendee: MyString
+  confirmed_on: MyString
+  article: two

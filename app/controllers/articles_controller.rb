@@ -2,7 +2,11 @@ class ArticlesController < ApplicationController
 
   def index
     @user = current_user
-    @articles = Article.where(username: @user.username)
+    if @user.username == "lyn"
+      @articles = Article.all
+    else
+      @articles = Article.where(username: @user.username)
+    end
   end
 
 	def show
@@ -50,7 +54,7 @@ class ArticlesController < ApplicationController
  
 private
   def article_params
-    params.require(:article).permit(:title, :text, :username)
+    params.require(:article).permit(:title, :text, :username, :eventname, :eventdate_start, :eventdate_end)
   end
   	
 end

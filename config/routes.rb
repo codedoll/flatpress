@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 	  resources :comments
 	end
 
+	resources :articles do
+	  resources :attends
+	end
+
 	root 'welcome#index'
 
 	devise_for :users

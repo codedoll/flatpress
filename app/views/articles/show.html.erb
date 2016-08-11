@@ -13,13 +13,38 @@
   	<%= @article.username %>
 </p>
 
+<p>
+	<strong>Event Name:</strong>
+  	<%= @article.eventname %>
+</p>
+
+<p>
+	<strong>Event Date Start:</strong>
+  	<%= @article.eventdate_start %>
+</p>
+
+<p>
+	<strong>Event Date End:</strong>
+  	<%= @article.eventdate_end %>
+</p>
+
+<h2>Attend this event:</h2>
+<%= form_for([@article, @article.attends.build]) do |f| %>
+      <%= f.hidden_field :attendee, :value => @user.username %>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+<h2>Attendees</h2>
+<%= render @article.attends %>
 
 <h2>Add a comment:</h2>
 <%= render 'comments/form' %>
 
-
-
 <h2>Comments</h2>
 <%= render @article.comments %>
+
+
+
 
 <%= link_to 'Edit', edit_article_path(@article) %> | <%= link_to 'Back', articles_path %>

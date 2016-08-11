@@ -24,12 +24,17 @@
 </p>
 
 <h2>Attend this event:</h2>
+<%- if user_signed_in? %>
 <%= form_for([@article, @article.attends.build]) do |f| %>
       <%= f.hidden_field :attendee, :value => @user.username %>
   <p>
     <%= f.submit %>
   </p>
+<% end %><% else %>
+  <li><%= link_to t('auth.sign_in'), new_user_session_path %></li>
+  <li><%= link_to t('auth.sign_up'), new_user_registration_path %></li>
 <% end %>
+
 <h2>Attendees</h2>
 <%= render @article.attends %>
 

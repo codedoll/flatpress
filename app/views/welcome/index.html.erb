@@ -1,5 +1,9 @@
 <h1>Web Dev Club</h1>
+<%- if user_signed_in? %>
  <%= link_to 'New post', new_article_path %>
+<% else %>
+ 
+<% end %>
 
 <table>
   <tr>

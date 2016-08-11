@@ -10,8 +10,6 @@
     <tr>
       <td><%= link_to article.title, article_path(article)%></td>
       <td><%= article.created_at.strftime("%m/%d/%Y") %></td>
-      <td><%= article.eventname %></td>
-
       <td><%= article.eventdate_start %></td>
       <td><%= link_to 'Edit', edit_article_path(article), class: "btn btn-primary"%></td>
       <td><%= link_to 'Delete', article_path(article),

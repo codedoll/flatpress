@@ -2,3 +2,12 @@
   <strong>Attendees:</strong>
   <%= attend.attendee %>
 </p>
+
+<%- if @user.username == attend.attendee %>
+
+<p>
+  <%= link_to 'Not Attending', [attend.article, attend],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
+<%- end %>

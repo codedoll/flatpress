@@ -6,6 +6,14 @@ class AttendsController < ApplicationController
 	redirect_to article_path(@article)
 	end
  
+  def destroy
+  	@user = current_user
+    @article = Article.find(params[:article_id])
+    @attend = @article.attends.find(params[:id])
+    @attend.destroy
+    redirect_to article_path(@article)
+  end
+
   private
     def attend_params
       params.require(:attend).permit(:attendee)

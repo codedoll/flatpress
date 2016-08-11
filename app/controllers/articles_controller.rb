@@ -11,6 +11,7 @@ class ArticlesController < ApplicationController
 
 	def show
     @user = current_user
+    @userinfoart = Article.where(username: @user.username)
     @article = Article.find(params[:id])
   end
 

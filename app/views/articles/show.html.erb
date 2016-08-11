@@ -1,28 +1,25 @@
-<div id="main-show">
-
-<div>
-  <h1> <%= @article.title %> </h1>
-    <strong>Hosted by:</strong>
-    <%= @article.username %>
-</div>
-
-<%= @article.eventdate_start %> to <%= @article.eventdate_end %>
-
-
-<div>
+<div class="wrapper">
+  <header class="header"><%= @article.title %></header>
+  <article class="main">
+  <%= @article.eventdate_start %> to <%= @article.eventdate_end %>
+  <br>
     <%= @article.text %>
 
-</div>
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>
 
-</div>
-
-
-<h2>Attend this event:</h2>
+<h2>Comments</h2>
+<%= render @article.comments %>
+  </article>
+  <aside class="aside aside-1">We have <%= @userinfoart.length %> events</aside>
+  <aside class="aside aside-2">    <strong>Hosted by:</strong>
+    <%= @article.username %>
+  <h2>Want to go?</h2>
 <%- if user_signed_in? %>
 <%= form_for([@article, @article.attends.new]) do |f| %>
       <%= f.hidden_field :attendee, :value => @user.username %>
   <p>
-    <%= f.submit %>
+    <%= f.submit "RSVP", class:"btn btn-warning"%>
   </p>
 <% end %><% else %>
   <li><%= link_to t('auth.sign_in'), new_user_session_path %></li>
@@ -33,12 +30,19 @@
 
 <h2><%= @article.attends.length %> going</h2>
 <%= render @article.attends %>
+</div>
 
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
 
-<h2>Comments</h2>
-<%= render @article.comments %>
+    </aside>
+  <footer class="footer">Footer</footer>
+</div>
+
+
+
+
+
+
+
 
 
 

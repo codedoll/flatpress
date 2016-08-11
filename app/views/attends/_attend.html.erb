@@ -1,13 +1,14 @@
 <p>
-  <strong>Attendees:</strong>
-  <%= attend.attendee %>
+  <strong><%= attend.attendee %></strong>
+  
 </p>
 
 <%- if @user.username == attend.attendee %>
 
 <p>
-  <%= link_to 'Not Attending', [attend.article, attend],
+  <%= link_to 'not going', [attend.article, attend],
                method: :delete,
-               data: { confirm: 'Are you sure?' } %>
+               data: { confirm: 'Are you sure?' },
+               class: "btn btn-default" %>
 </p>
 <%- end %>

@@ -1,14 +1,18 @@
-<p>
-  <strong><%= attend.attendee %></strong>
-  
-</p>
+<div id="going">
 
-<%- if @user.username == attend.attendee %>
+	<p>
+	  <strong><%= attend.attendee %></strong>
+	  
+	</p>
+  <%- if user_signed_in? %>
 
-<p>
-  <%= link_to 'not going', [attend.article, attend],
-               method: :delete,
-               data: { confirm: 'Are you sure?' },
-               class: "btn btn-default" %>
-</p>
-<%- end %>
+	<%- if @user.username == attend.attendee %>
+
+	  <%= link_to 'not going', [attend.article, attend],
+	               method: :delete,
+	               class: "btn btn-default" %>
+	<%- end %>
+		<%- end %>
+
+</div>
+

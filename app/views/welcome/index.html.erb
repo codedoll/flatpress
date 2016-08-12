@@ -5,6 +5,7 @@
  
 <% end %>
 
+
 <table>
   <tr>
     <th>Title</th>
@@ -19,4 +20,15 @@
 
     </tr>
   <% end %>
+
+
+  <%- if user_signed_in? %>
+
+    <% @attends.each do |attend| %>
+        <tr>
+          <td><%= attend.attendee %></td>
+
+        </tr>
+      <% end %>
+  <%- end %>
 </table>

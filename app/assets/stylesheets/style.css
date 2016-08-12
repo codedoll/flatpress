@@ -1,6 +1,7 @@
 body {
     padding-top: 5em !important;  
     font-size: 16px;
+    background: #FCF3EF;
 }
 
 .signed-in {
@@ -52,15 +53,16 @@ body {
 
 .main {
   text-align: left;
-  background: deepskyblue;
+  /*background: deepskyblue;*/
 }
 
 .aside-1 {
-  background: royalblue;
+  /*background: royalblue;*/
+
 }
 
 .aside-2 {
-  background: orange;
+  /*background: orange;*/
 }
 
 @media all and (min-width: 600px) {
@@ -75,6 +77,13 @@ body {
   .footer  { order: 4; }
 }
 
-body {
-  padding: 2em; 
+#going {
+    border-bottom: 2px #ccc dotted;
+    padding: 10px;
+}
+
+.insidediv {
+  background-color: white;
+  border: 1px #ccc solid;
+  padding: 1em;
 }

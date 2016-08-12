@@ -1,50 +1,45 @@
 <div class="wrapper">
-  <header class="header"><%= @article.title %></header>
-  <article class="main">
-  <%= @article.eventdate_start %> to <%= @article.eventdate_end %>
-  <br>
-    <%= @article.text %>
+   <header class="header"><%= @article.title %></header>
+   <article class="main">
+      <div class="insidediv">
 
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
+         <span class="hr12"><%= @article.eventdate_start %></span> to <span class="hr12"><%= @article.eventdate_end %></span>
+         <br>
+         <%= @article.text %>
 
-<h2>Comments</h2>
-<%= render @article.comments %>
-  </article>
-  <aside class="aside aside-1">We have <%= @userinfoart.length %> events</aside>
-  <aside class="aside aside-2">    <strong>Hosted by:</strong>
-    <%= @article.username %>
-  <h2>Want to go?</h2>
-<%- if user_signed_in? %>
-<%= form_for([@article, @article.attends.new]) do |f| %>
-      <%= f.hidden_field :attendee, :value => @user.username %>
-  <p>
-    <%= f.submit "RSVP", class:"btn btn-warning"%>
-  </p>
-<% end %><% else %>
-  <li><%= link_to t('auth.sign_in'), new_user_session_path %></li>
-  <li><%= link_to t('auth.sign_up'), new_user_registration_path %></li>
-<% end %>
+         <%- if user_signed_in? %>
 
+            <h2>Add a comment:</h2>
+   
+            <%= render 'comments/form' %>
+         <%- end %>
+        
+         <h2>Discussion</h2>
+         <%= render @article.comments %>
 
-
-<h2><%= @article.attends.length %> going</h2>
-<%= render @article.attends %>
+      </div>
+   </article>
+   <aside class="aside aside-1">We have <%= @articles.length%> events</aside>
+   <aside class="aside aside-2">
+      <div class="insidediv">
+         <strong>Hosted by:</strong>
+         <%= @article.username %>
+         <h2>Want to go?</h2>
+         <%- if user_signed_in? %>
+         <%= form_for([@article, @article.attends.new]) do |f| %>
+         <%= f.hidden_field :attendee, :value => @user.username %>
+         <p>
+            <%= f.submit "RSVP", class:"btn btn-warning"%>
+         </p>
+         <% end %><% else %>
+         <li><%= link_to t('auth.sign_in'), new_user_session_path %></li>
+         <li><%= link_to t('auth.sign_up'), new_user_registration_path %></li>
+         <% end %>
+         <h2><%= @article.attends.length %> going</h2>
+         <%= render @article.attends %>
+      </div>
 </div>
-
-
-    </aside>
-  <footer class="footer">Footer</footer>
+</aside>
+<footer class="footer">Footer</footer>
 </div>
-
-
-
-
-
-
-
-
-
-
-
 <%= link_to 'Edit', edit_article_path(@article) %> | <%= link_to 'Back', articles_path %>

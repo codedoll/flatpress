@@ -1,19 +1,27 @@
-<h1>Web Dev Club</h1>
+
+
+
+<div class="wrapper">
+   <header class="header"><h1>Web Dev Club</h1>
 <%- if user_signed_in? %>
   <%= link_to 'New post', new_article_path, class: "btn btn-primary" %> 
-<% end %>
+<% end %></header>
+  
+   <article class="main">
+      <div class="insidediv">
 
-
-<div>
-  <% @articles.each do |article| %>
-    <%= link_to article.title, article_path(article)%><br>
-      <%= article.username %><br>
-    <%= article.created_at.strftime("%m/%d/%Y") %><br>
+         <% @articles.each do |article| %>
+      <div class="oneevent">
+      <%= link_to article.title, article_path(article)%><br>
+        <%= article.username %><br>
+    Event Start: <%= article.eventdate_start %><br>
+    Event End: <%= article.eventdate_end %><br>
+      </div>    
   <% end %>
-</div>
 
-
-<div>
+      </div>
+   </article>
+   <aside class="aside aside-1">    <div>
   <%- if user_signed_in? %>
 <h3>You're attending the following events</h3>
     <% @attends.each do |attend| %>
@@ -24,4 +32,21 @@
       <% end %>    
     <% end %>
     <%- end %>
+</div>  </aside>
+   <aside class="aside aside-2">
+    
 </div>
+</aside>
+<footer class="footer">Thanks for visiting!</footer>
+</div>
+
+
+
+
+
+<main>
+
+  
+</main>
+
+

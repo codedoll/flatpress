@@ -1,4 +1,6 @@
 <h1>New Post</h1>
+<div class="container">
+    <div class='col-md-5 form-horizontal'>
 
 <%= form_for @article do |f| %>
  
@@ -14,18 +16,20 @@
       </ul>
     </div>
   <% end %>
- 
+ </div>
   <p>
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </p>
-  <p>
+  <p >
     <%= f.label :text %><br>
     <%= f.text_area :text %>
   </p>
 
+
+</div>
 <div class="container">
-    <div class='col-md-5'>
+    <div class='col-md-3'>
         <div class="form-group">
         <label>Event Date Start:</label>
             <div class='input-group date datetimeformat' id='datetimepicker6'>
@@ -36,7 +40,7 @@
             </div>
         </div>
     </div>
-    <div class='col-md-5'>
+    <div class='col-md-3'>
         <div class="form-group">
                 <label>Event Date End:</label>
 
@@ -67,12 +71,15 @@
     });
     });
 </script>
-
+  <p>
+    <%= f.label :eventname, 'Event Location' %><br>
+    <%= f.text_field :eventname %>
+  </p>
    <p>
       <%= f.hidden_field :username, :value => @user.username %>
    </p>
   <p>
-    <%= f.submit%>
+    <%= f.submit %>
   </p>
  
 <% end %>

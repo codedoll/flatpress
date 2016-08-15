@@ -3,9 +3,13 @@
    <article class="main">
       <div class="insidediv">
 
-         <span class="hr12"><%= @article.eventdate_start %></span> to <span class="hr12"><%= @article.eventdate_end %></span>
+         <span class="hr12"><%= @article.eventdate_start %></span> 
+         to
+         <span class="hr12"><%= @article.eventdate_end %></span>
          <br>
-         <%= @article.text %>
+         <span>Event name : <%= @article.eventname %></span>
+         <br>
+         <span>Description : <%= @article.text %></span>
 
          <%- if user_signed_in? %>
 

@@ -1,5 +1,7 @@
 class WelcomeController < ApplicationController
-	
+# 	@track = Track.find(params[:id])
+# @sections = @track.sections
+
     def index
    	    @user = current_user
 	    @articles = Article.all

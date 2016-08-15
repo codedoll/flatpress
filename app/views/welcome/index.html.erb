@@ -1,34 +1,27 @@
 <h1>Web Dev Club</h1>
 <%- if user_signed_in? %>
- <%= link_to 'New post', new_article_path %>
-<% else %>
- 
+  <%= link_to 'New post', new_article_path, class: "btn btn-primary" %> 
 <% end %>
 
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Author</th>
-  </tr>
- 
+<div>
   <% @articles.each do |article| %>
-    <tr>
-      <td><%= link_to article.title, article_path(article)%></td>
-      <td><%= article.username %></td>
-      <td><%= article.created_at.strftime("%m/%d/%Y") %></td>
-
-    </tr>
+    <%= link_to article.title, article_path(article)%><br>
+      <%= article.username %><br>
+    <%= article.created_at.strftime("%m/%d/%Y") %><br>
   <% end %>
+</div>
 
 
+<div>
   <%- if user_signed_in? %>
-
+<h3>You're attending the following events</h3>
     <% @attends.each do |attend| %>
-        <tr>
-          <td><%= attend.attendee %></td>
-
-        </tr>
-      <% end %>
-  <%- end %>
-</table>
+      <% @articles.each do |article| %>
+          <%- if article.id == attend.article_id %>
+              <%= link_to article.title, article_path(article)%><br>
+            <%- end %>
+      <% end %>    
+    <% end %>
+    <%- end %>
+</div>

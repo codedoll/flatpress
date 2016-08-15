@@ -46,6 +46,7 @@ body {
 
 .footer {
   background: lightgreen;
+  text-align: center;
 }
 
 .main {
@@ -100,4 +101,9 @@ main {
   display: flex;
   justify-content: center;
   /*align-items: center;*/
+}
+
+.showtitle {
+  color: white;
+  font-size: 1.6em;
 }

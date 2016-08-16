@@ -107,3 +107,7 @@ main {
   color: white;
   font-size: 1.6em;
 }
+
+td {
+    padding: 1em !important;
+}
